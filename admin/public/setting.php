@@ -1,0 +1,155 @@
+<?php
+$get = !empty($_GET['id']) ? xss($_GET['id']) : '1';
+
+ if (!$ACAIVIPPRO->get_row("SELECT * FROM `setting` WHERE `id`='$get'")){
+     header("location: home.html");
+     die();
+ }
+ $row = $ACAIVIPPRO->get_row("SELECT * FROM `setting` WHERE `id`='$get'");
+?>
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>setting website</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">setting website</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <!-- left column -->
+          <div class="col-md-12">
+            <!-- jquery validation -->
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">setting website #<?=$get;?></h3>
+              </div>
+              <!-- form start -->
+              <form id="setting_acaivippro" method="post">
+                <div class="card-body">
+                  <div class="form-group">
+                    <label>Tiêu Đề</label>
+                    <input type="text" name="title" class="form-control" id="title" placeholder="Tiêu đề bài viết" value="<?=$row['title'];?>">
+                    <input type="hidden" name="id" class="form-control" id="id" value="<?=$row['id'];?>">
+                  </div>
+                  <div class="form-group">
+                    <label>Mô Tả</label>
+                    <input type="text" name="description" class="form-control" id="description" placeholder="Mô tả bài viết" value="<?=$row['description'];?>">
+                  </div>
+                  <div class="form-group">
+                    <label>Home Url</label>
+                    <input type="text" name="home_url" class="form-control" id="home_url" placeholder="Home Url" value="<?=$row['home_url'];?>">
+                  </div>
+                   <div class="form-group">
+                    <label>domain</label>
+                    <input type="text" name="domain" class="form-control" id="domain" placeholder="domain" value="<?=$row['domain'];?>">
+                  </div>
+                  <div class="form-group">
+                    <label>logo</label>
+                    <input type="text" name="logo" class="form-control" id="logo" placeholder="Link video" value="<?=$row['logo'];?>">
+                  </div>
+                <div class="form-group">
+                    <label>images hiển thị khi chia sẻ</label>
+                    <input type="text" name="images" class="form-control" id="images" placeholder="images hiển thị khi chia sẻ" value="<?=$row['images'];?>">
+                  </div>
+                <div class="form-group">
+                    <label>Thông tin liên hệ</label>
+                    <input type="text" name="tele" class="form-control" id="tele" placeholder="Thông tin liên hệ" value="<?=$row['tele'];?>">
+                  </div>
+                <div class="form-group">
+                    <label>server_play</label>
+                    <input type="text" name="server_play" class="form-control" id="server_play" placeholder="server_play" value="<?=$row['server_play'];?>">
+                  </div>
+                <div class="form-group">
+                    <label>server_images</label>
+                    <input type="text" name="server_img" class="form-control" id="server_img" placeholder="server_img" value="<?=$row['server_img'];?>">
+                  </div>
+                <div class="form-group">
+                    <label>script</label>
+                    <textarea type="text" name="script" rows="10" class="form-control" id="script" placeholder="script"><?=$row['script'];?></textarea>
+                  </div>
+                </div>
+                <!-- /.card-body -->
+                <div class="card-footer">
+                  <button type="submit" id="setting_submit" class="btn btn-primary">Submit</button>
+                </div>
+              </form>
+            </div>
+            <!-- /.card -->
+            </div>
+          <!--/.col (left) -->
+          <!-- right column -->
+          <div class="col-md-6">
+
+          </div>
+          <!--/.col (right) -->
+        </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+<!-- jQuery -->
+<script src="plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- Select2 -->
+<script src="plugins/select2/js/select2.full.min.js"></script>
+<!-- Bootstrap4 Duallistbox -->
+<script src="plugins/bootstrap4-duallistbox/jquery.bootstrap-duallistbox.min.js"></script>
+<!-- InputMask -->
+<script src="plugins/moment/moment.min.js"></script>
+<script src="plugins/inputmask/jquery.inputmask.min.js"></script>
+<!-- date-range-picker -->
+<script src="plugins/daterangepicker/daterangepicker.js"></script>
+<!-- bootstrap color picker -->
+<script src="plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js"></script>
+<!-- Tempusdominus Bootstrap 4 -->
+<script src="plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+<!-- Bootstrap Switch -->
+<script src="plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
+<!-- BS-Stepper -->
+<script src="plugins/bs-stepper/js/bs-stepper.min.js"></script>
+<!-- dropzonejs -->
+<script src="plugins/dropzone/min/dropzone.min.js"></script>
+<!-- AdminLTE App -->
+<script src="dist/js/adminlte.min.js"></script>
+
+<!-- AdminLTE for demo purposes -->
+<script src="js/acaivippro.js"></script>
+  <!-- Toastr -->
+  <link rel="stylesheet" href="plugins/toastr/toastr.min.css">
+<!-- Page specific script -->
+<!-- Toastr -->
+<script src="plugins/toastr/toastr.min.js"></script>
+<script>
+  $(function () {
+    //Initialize Select2 Elements
+    $('.select2').select2();
+    //Initialize Select2 Elements
+    $('.select2bs4').select2({
+      theme: 'bootstrap4'
+    })
+
+    //Datemask dd/mm/yyyy
+    $('#datemask').inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/yyyy' })
+    //Datemask2 mm/dd/yyyy
+    $('#datemask2').inputmask('mm/dd/yyyy', { 'placeholder': 'mm/dd/yyyy' })
+    //Money Euro
+    $('[data-mask]').inputmask()
+  })
+  
+</script>

@@ -1,0 +1,33 @@
+RewriteEngine On
+# url video
+RewriteRule ^([a-zA-Z0-9-_]+).html$ /controller/view.php?slug=$1 [L,QSA]
+# url video
+RewriteRule ^search$ /controller/search.php [L,QSA]
+RewriteRule ^search?q=(.*)$ /controller/search.php?q=$1 [L,QSA]
+RewriteRule ^tag/([^/]+)$ /controller/tag.php?tag=$1 [L,QSA,B]
+
+# phân trang home
+RewriteRule ^baihatmoi/([-0-9]+).html$ /controller/home.php?page=$1 [L,QSA]
+# url video
+RewriteRule ^embed/([-0-9]+)/([-0-9]+)$ /xvideos/index.php?id=$1&server=$2 [L,QSA]
+# phân trang home
+RewriteRule ^the-loai/([a-zA-Z0-9-_]+).html$ /controller/category.php?slug=$1 [L,QSA]
+RewriteRule ^the-loai/([a-zA-Z0-9-_]+).html?page=([-0-9]+)$ /controller/category.php?slug=$1&page=$2 [L,QSA]
+# ajax id video
+RewriteRule ^42fb2f9813785847785108f5face7b42$ /controller/ajax.php [L,QSA]
+RewriteRule ^sitemap.xml$ /controller/sitemap.php [L]
+ErrorDocument 400 /
+ErrorDocument 401 /
+ErrorDocument 403 /
+ErrorDocument 404 /
+ErrorDocument 500 /
+ErrorDocument 502 /
+ErrorDocument 504 /
+
+
+
+
+RewriteCond %{QUERY_STRING} action=(.*)
+RewriteRule ^admin/home.html$ admin/index.php?action=%1 [L]
+RewriteRule ^admin/home.html$ admin/index.php [L]
+# RewriteRule ^admin/baiviet.html$ admin/controller/baiviet.php [L,QSA]
