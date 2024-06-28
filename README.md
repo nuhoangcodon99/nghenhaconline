@@ -18,8 +18,8 @@ Giao diện nghe nhạc<br>
 <img src="./giaodienmusic.png" width="500px">
 <br>
 Giao diện Admin<br>
-<img src="./giaodienadmin.png" width="500px">
+<img src="./daodienadmin.png" width="500px">
 <br>
 Giao diện Admin1<br>
-<img src="./giaodienadmin1.png" width="500px">
+<img src="./daodienadmin1.png" width="500px">
 <br>
