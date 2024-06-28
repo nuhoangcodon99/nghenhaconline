@@ -17,14 +17,9 @@ Giao diện<br>
 Giao diện nghe nhạc<br>
 <img src="./giaodienmusic.png" width="500px">
 <br>
-Giao diện admin <br>
+Giao diện Admin<br>
 <img src="./giaodienadmin.png" width="500px">
 <br>
-Giao diện admin<br>
+Giao diện Admin1<br>
 <img src="./giaodienadmin1.png" width="500px">
-
-<img src="https://github.com/nuhoangcodon99/nghenhaconline/assets/118293692/a37b4340-2dcf-42a7-8c19-8cb091090f90" width="500px">
 <br>
-Giao diện admin<br>
-<img src="https://github.com/nuhoangcodon99/nghenhaconline/assets/118293692/04471989-816f-4b0f-98f2-451debc67a47" width="500px">
-
